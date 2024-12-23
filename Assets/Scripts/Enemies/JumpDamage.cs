@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JumpDamage : MonoBehaviour
 {
-    public Collider2D collider2D;
+    public Collider2D collider2D; // Use 'new' keyword to hide inherited member
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     public GameObject destroyParticle;
@@ -17,7 +17,6 @@ public class JumpDamage : MonoBehaviour
         {
             collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = (Vector2.up * jumpForce);
             LosseLifeAndHit();
-            
         }
     } 
 
