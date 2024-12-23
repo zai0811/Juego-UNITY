@@ -96,7 +96,7 @@ public class PlayerMoveJoystick : MonoBehaviour
     // Incrementa la altura del salto en cada nivel
     public void LevelUp()
     {
-        currentLevel++;
+       
         jumpSpeed = baseJumpSpeed + (0.5f * currentLevel); // Incremento progresivo
 
          if (currentLevel == 3)
@@ -104,6 +104,7 @@ public class PlayerMoveJoystick : MonoBehaviour
         // Cargar la escena usando su nombre o Build Index
         SceneManager.LoadScene("Fin", LoadSceneMode.Single);
     }
+     currentLevel++;
     }
 
    

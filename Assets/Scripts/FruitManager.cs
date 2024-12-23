@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class FruitManager : MonoBehaviour
 {
-    public Text levelCleared; // Texto para indicar que el nivel ha sido completado
-    public GameObject transition; // Objeto de transición entre niveles
+    public Text levelCleared;
+    public GameObject transition;
 
+<<<<<<< HEAD
     public Text totalFruits; // Texto para mostrar el total de frutas en el nivel
     public Text fruitsCollected; // Texto para mostrar las frutas recolectadas
     private int totalFruitsInLevel; // Total de frutas en el nivel
@@ -25,10 +26,21 @@ public class FruitManager : MonoBehaviour
         {
             fruitsCollected.text = collectedFruits.ToString(); // Inicializar el texto de frutas recolectadas
         }
+=======
+    public Text totalFruits;
+    public Text fruitsCollected;
+    private int totalFruitsInLevel;
+
+    private void Start()
+    {
+        totalFruitsInLevel = transform.childCount;
+        
+>>>>>>> parent of 6a1adc1 (avanza de nivel cuando accede a la puerta)
     }
 
     private void Update()
     {
+<<<<<<< HEAD
         // Actualizar el texto de frutas recolectadas
         if (fruitsCollected != null)
         {
@@ -44,10 +56,15 @@ public class FruitManager : MonoBehaviour
         {
             AllFruitsCollected();
         }
+=======
+        AllFruitsCollected();
+        totalFruits.text = totalFruitsInLevel.ToString();
+        fruitsCollected.text = transform.childCount.ToString();
+>>>>>>> parent of 6a1adc1 (avanza de nivel cuando accede a la puerta)
     }
-
     public void AllFruitsCollected()
     {
+<<<<<<< HEAD
         if (collectedFruits >= totalFruitsInLevel)
         {
             Debug.Log("No quedan ");
@@ -59,6 +76,14 @@ public class FruitManager : MonoBehaviour
             }
             //transition.gameObject.SetActive(true); // Mostrar la transición
             // Invoke("ChangeScene", 1); // Cambiar de escena después de 1 segundo
+=======
+        if(transform.childCount == 0)
+        {
+            Debug.Log("No quedan frutas");
+            //levelCleared.gameObject.SetActive(true);
+            transition.gameObject.SetActive(true);
+            Invoke("ChangeScene", 1);
+>>>>>>> parent of 6a1adc1 (avanza de nivel cuando accede a la puerta)
         }
     }
 
@@ -68,13 +93,17 @@ public class FruitManager : MonoBehaviour
     /// </summary>
     void ChangeScene()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 4)
+        if(SceneManager.GetActiveScene().buildIndex == 4)
         {
-            SceneManager.LoadScene(0); // Volver a la primera escena si es la última
+            SceneManager.LoadScene(0);
         }
+<<<<<<< HEAD
         if (collectedFruits >= totalFruitsInLevel && Input.GetKey("e"))
+=======
+        else
+>>>>>>> parent of 6a1adc1 (avanza de nivel cuando accede a la puerta)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Cargar la siguiente escena
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

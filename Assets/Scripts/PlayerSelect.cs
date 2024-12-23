@@ -53,7 +53,16 @@ public class PlayerSelect : MonoBehaviour
                 spriteRenderer.sprite = playersRenderer[0];
                 animator.runtimeAnimatorController = playersController[0];
                 break;
-            
+            case "PinkMan":
+                spriteRenderer.sprite = playersRenderer[1];
+                animator.runtimeAnimatorController = playersController[1];
+                break;
+            case "VirtualGuy":
+                spriteRenderer.sprite = playersRenderer[2];
+                animator.runtimeAnimatorController = playersController[2];
+                break;
+            default:
+                break; 
         }
     }
 
