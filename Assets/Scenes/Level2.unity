@@ -1087,7 +1087,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "A: Izquierda\nD: Derecha\nB: Salto\n\nE: Ingresar \n     Nivel"
+  m_Text: "A: Izquierda\nD: Derecha\nB: Salto/ataque\n\nE: Ingresar \n     Nivel"
 --- !u!222 &449431402
 CanvasRenderer:
   m_ObjectHideFlags: 0
