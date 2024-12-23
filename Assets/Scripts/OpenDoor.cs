@@ -52,21 +52,16 @@ public class OpenDoor : MonoBehaviour
             doorTime -= Time.deltaTime;
         }
 
-        if (doorTime <= 0)
-        {
-            if (!string.IsNullOrEmpty(levelName))
-            {
-                SceneManager.LoadScene(levelName); // Cambia de nivel
-            }
-            else
-            {
-                Debug.LogError("El nombre del nivel no está configurado.");
-            }
-        }
 
-        if (inDoor && Input.GetKey("e"))
+
+        if (doorTime <= 0  && Input.GetKey("e") && AllFruitsCollected())
         {
             SceneManager.LoadScene(levelName);
         }
+    }
+
+    private bool AllFruitsCollected()
+    {
+        return FindObjectOfType<FruitManager>().transform.childCount == 0;
     }
 }

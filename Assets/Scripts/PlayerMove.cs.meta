@@ -3,7 +3,13 @@ guid: 43742b4eede46d54c8cea0232227a6aa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - spriteRenderer: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - dustLeft: {instanceID: 0}
+  - dustRight: {instanceID: 0}
+  - bulletPrefab: {fileID: 2633898643156090399, guid: 273cd63caa40d704e9bb246ec8595e77, type: 3}
+  - launchSpawnPoint: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
