@@ -28,6 +28,10 @@ public class PlayerMove : MonoBehaviour
 
     bool isTouchingDerecha;
     bool isTouchingIzquierda;
+
+    public float jumpDamageThreshold = -10f; // Umbral para recibir daño por caída
+    public int jumpDamageAmount = 10; // Cantidad de daño recibido por caída
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +101,8 @@ public class PlayerMove : MonoBehaviour
             animator.Play("Wall");
             rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, Mathf.Clamp(rb2D.linearVelocity.y, -wallSlidingSpeed, float.MaxValue));
         }
+
+        CheckJumpDamage();
     }
 
     // Update is called once per frame
@@ -171,5 +177,18 @@ public class PlayerMove : MonoBehaviour
         isTouchingDerecha = false;
         isTouchingIzquierda = false;
     }
+
+    void CheckJumpDamage()
+    {
+        if (rb2D.linearVelocity.y < jumpDamageThreshold)
+        {
+            TakeDamage(jumpDamageAmount);
+        }
+    }
+
+    void TakeDamage(int damage)
+    {
+        // Implementar lógica de daño aquí
+        Debug.Log("El jugador recibió " + damage + " de daño por caída.");
+    }
 }
- 

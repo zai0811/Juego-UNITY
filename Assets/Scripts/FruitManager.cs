@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class FruitManager : MonoBehaviour
 {
-    public Text levelCleared;
-    public GameObject transition;
+    public Text levelCleared; // Texto para indicar que el nivel ha sido completado
+    public GameObject transition; // Objeto de transición entre niveles
 
     public Text totalFruits; // Texto para mostrar el total de frutas en el nivel
     public Text fruitsCollected; // Texto para mostrar las frutas recolectadas
@@ -29,19 +29,36 @@ public class FruitManager : MonoBehaviour
 
     private void Update()
     {
-        AllFruitsCollected();
-        totalFruits.text = totalFruitsInLevel.ToString();
-        fruitsCollected.text = transform.childCount.ToString();
+        // Actualizar el texto de frutas recolectadas
+        if (fruitsCollected != null)
+        {
+            fruitsCollected.text = collectedFruits.ToString();
+        }
+        AllFruitsCollected(); // Verificar si todas las frutas han sido recolectadas
     }
+
+    public void CollectFruit()
+    {
+        collectedFruits++; // Incrementar el contador de frutas recolectadas
+        if (collectedFruits >= totalFruitsInLevel)
+        {
+            AllFruitsCollected();
+        }
+    }
+
     public void AllFruitsCollected()
     {
-
-        if(transform.childCount == 0)
+        if (collectedFruits >= totalFruitsInLevel)
         {
-            Debug.Log("No quedan frutas");
-            //levelCleared.gameObject.SetActive(true);
-            transition.gameObject.SetActive(true);
-            Invoke("ChangeScene", 1);
+            Debug.Log("No quedan ");
+            // Mostrar mensaje de todas las frutas recolectadas
+            if (levelCleared != null)
+            {
+                levelCleared.gameObject.SetActive(true);
+                levelCleared.text = "¡Has recolectado todas !";
+            }
+            //transition.gameObject.SetActive(true); // Mostrar la transición
+            // Invoke("ChangeScene", 1); // Cambiar de escena después de 1 segundo
         }
     }
 
@@ -51,14 +68,13 @@ public class FruitManager : MonoBehaviour
     /// </summary>
     void ChangeScene()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 4)
+        if (SceneManager.GetActiveScene().buildIndex == 4)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(0); // Volver a la primera escena si es la última
         }
-
-        else
+        if (collectedFruits >= totalFruitsInLevel && Input.GetKey("e"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Cargar la siguiente escena
         }
     }
 }
