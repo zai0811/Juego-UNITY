@@ -8,10 +8,10 @@ public class PlayerMoveJoystick : MonoBehaviour
 {
     private float horizontalMove = 0f;
     public float runSpeedHorizontal = 2;
-    public float runSpeed = 1.25f;
+    public float runSpeed = 0.25f;
 
     // Configuración de salto
-    public float baseJumpSpeed = 3; // Altura de salto base
+    public float baseJumpSpeed = 1; // Altura de salto base
     public float jumpSpeed; // Se incrementa en cada nivel
     public float doubleJumpSpeed = 2.5f;
     private bool canDoubleJump;
@@ -98,7 +98,10 @@ public class PlayerMoveJoystick : MonoBehaviour
     {
         currentLevel++;
         jumpSpeed = baseJumpSpeed + (0.5f * currentLevel); // Incremento progresivo
-
+if (currentLevel == 2)    
+    {
+    runSpeed = runSpeed + 0.25f;
+}
          if (currentLevel == 3)
     {
         // Cargar la escena usando su nombre o Build Index

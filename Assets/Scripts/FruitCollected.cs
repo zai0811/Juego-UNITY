@@ -13,7 +13,7 @@ public class FruitCollected : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
-            //FindObjectOfType<FruitManager>().AllFruitsCollected();
+            FindObjectOfType<FruitManager>().CollectFruit(); // Notificar al FruitManager
             Destroy(gameObject, 0.5f);
             clip.Play();
         }

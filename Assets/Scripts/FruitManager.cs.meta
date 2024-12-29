@@ -3,7 +3,11 @@ guid: 25805f9c193a6f847ae9f2261abcd286
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - levelCleared: {instanceID: 0}
+  - transition: {instanceID: 0}
+  - totalFruits: {instanceID: 0}
+  - fruitsCollected: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

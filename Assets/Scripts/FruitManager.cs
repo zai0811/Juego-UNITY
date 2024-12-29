@@ -61,7 +61,22 @@ public class FruitManager : MonoBehaviour
             // Invoke("ChangeScene", 1); // Cambiar de escena después de 1 segundo
         }
     }
+ private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Verifica si el objeto que colisiona es el jugador
+        if (collision.CompareTag("Player"))
+        {
+            // Encuentra el FruitManager y llama a CollectFruit()
+            FruitManager fruitManager = FindObjectOfType<FruitManager>();
+            if (fruitManager != null)
+            {
+                fruitManager.CollectFruit();
+            }
 
+            // Destruye la fruta
+            Destroy(gameObject);
+        }
+    }
     /// <summary>
     /// Cambia la escena actual por la siguiente en la lista de escenas cargadas
     /// Si la escena actual es la última, vuelve a la primera escena.
