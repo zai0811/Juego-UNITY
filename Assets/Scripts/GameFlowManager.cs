@@ -16,7 +16,6 @@ public class GameFlowManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Inicio"); // Inicio del juego
         SceneManager.LoadScene("Level1"); // Cambia a la escena del Nivel 1
     }
 

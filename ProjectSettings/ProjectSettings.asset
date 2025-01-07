@@ -166,7 +166,6 @@ PlayerSettings:
   androidMinAspectRatio: 1
   applicationIdentifier:
     Android: com.AlexseikEC.PixelAdventure
-    Standalone: com.Adventure.Adventure
   buildNumber:
     Standalone: 0
     VisionOS: 0

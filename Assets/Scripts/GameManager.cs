@@ -126,7 +126,8 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
- Time.timeScale = 1f; // Asegúrate de que el tiempo esté activo
-  playerLives = 3; // Reinicia las vidas
-    SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Recarga automáticamente el nivel actual
-}}
+        Time.timeScale = 0f; // Detener el tiempo
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(true);
+    }
+}
